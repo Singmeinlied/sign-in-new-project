@@ -1,0 +1,6 @@
+framework module Pods_Sign_in_new_project {
+  umbrella header "Pods-Sign in new project-umbrella.h"
+
+  export *
+  module * { export * }
+}
