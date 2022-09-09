@@ -22,10 +22,8 @@ class baseViewController: UIViewController{
     }
     
     func setupConstrains(){
-        
     }
     
     func setupValues(){
-        
     }
 }

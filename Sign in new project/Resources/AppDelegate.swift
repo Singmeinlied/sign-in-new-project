@@ -12,14 +12,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-//    var navController : UINavigationController?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        loginApp()
+        if let user = UserDefaults.standard.string(forKey: "login"){
+            if user.isEmpty{
+                loginApp()
+            } else{
+                mainApp()
+            }
+        } else{
+            loginApp()
+        }
         
         window.makeKeyAndVisible()
         
@@ -27,19 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func loginApp(){
-        
         self.window?.rootViewController = navController(vc: loginVC())
     }
     
     func mainApp(){
-        
-        self.window?.rootViewController = navController(vc: mainVC())
+        self.window?.rootViewController = navController(vc: MainTabBarController())
     }
     
     func navController(vc: UIViewController) -> UINavigationController{
         
         let viewController = UINavigationController(rootViewController: vc)
-        
         viewController.navigationBar.isHidden = true
         
         return viewController

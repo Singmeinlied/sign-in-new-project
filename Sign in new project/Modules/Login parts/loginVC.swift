@@ -123,7 +123,7 @@ class loginVC: baseViewController{
     private lazy var firstLabelSignUp: UILabel = {
         let fl = UILabel()
         fl.text = "Don't have an account?"
-        fl.textColor = UIColor(red: 0.322, green: 0.329, blue: 0.392, alpha: 1)
+        fl.textColor = UIColor(red: 0.514, green: 0.514, blue: 0.569, alpha: 1)
         fl.textAlignment = .right
         fl.font = .systemFont(ofSize: 18, weight: .semibold)
         
@@ -173,20 +173,20 @@ class loginVC: baseViewController{
         super.setupConstrains()
         mainLabel.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(computedHeight(30))
         }
         
         iconImage.snp.makeConstraints{
-            $0.top.equalTo(mainLabel.snp.bottom).offset(60)
+            $0.top.equalTo(mainLabel.snp.bottom).offset(computedHeight(60))
             $0.centerX.equalToSuperview()
             $0.width.equalTo(100)
         }
         
         stackView.snp.makeConstraints{
-            $0.top.equalTo(iconImage.snp.bottom).offset(50)
+            $0.top.equalTo(iconImage.snp.bottom).offset(computedHeight(50))
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(130)
+            $0.height.equalTo(computedHeight(130))
         }
         
         secureIcon.snp.makeConstraints{
@@ -196,25 +196,25 @@ class loginVC: baseViewController{
         }
         
         forgotPassButtonLabel.snp.makeConstraints{
-            $0.top.equalTo(passTextField.snp.bottom).offset(14)
-            $0.right.equalToSuperview().offset(-30)
+            $0.top.equalTo(passTextField.snp.bottom).offset(computedHeight(14))
+            $0.trailing.equalToSuperview().offset(-30)
+            $0.height.equalTo(computedHeight(22))
         }
         
         loginButton.snp.makeConstraints{
             
-            $0.top.equalTo(forgotPassButtonLabel.snp.bottom).offset(30)
+            $0.top.equalTo(forgotPassButtonLabel.snp.bottom).offset(computedHeight(30))
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(60)
+            $0.height.equalTo(computedHeight(60))
         }
         
         stackForLastLabels.snp.makeConstraints{
             
-            $0.top.lessThanOrEqualTo(loginButton.snp.bottom).offset(10)
+            $0.top.equalTo(loginButton.snp.bottom).offset(computedHeight(162))
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(computedHeight(-20))
         }
-        
     }
     
     override func setupValues() {
@@ -225,11 +225,10 @@ class loginVC: baseViewController{
                 self.appDelegate.mainApp()
             }else{
                 self.forgotPassButtonLabel.textColor = .red
+                self.forgotPassButtonLabel.text = "Login or password is incorrect!"
                 self.forgotPassButtonLabel.shake(count: 3, for: 0.2, withTranslation: 8)
             }
         }
-        
-        
     }
 }
 extension loginVC{
@@ -250,22 +249,22 @@ extension loginVC{
         guard let login = loginTextField.text, let password = passTextField.text else {return}
         
         if !login.isEmpty && !password.isEmpty{
-
             viewModel.authorizeUser(login: login, password: password)
+        } else{
+            self.forgotPassButtonLabel.textColor = .red
+            self.forgotPassButtonLabel.text = "Login or password is empty"
+            self.forgotPassButtonLabel.shake(count: 3, for: 0.2, withTranslation: 8)
         }
-        
-//        let vc = signUpViewController()
-//        navigationController?.pushViewController(vc, animated: true)
-//
-        
     }
 }
+
 extension loginVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
+
 extension UIView {
     
     func shake(count: Float = 4, for duration: TimeInterval = 0.5,

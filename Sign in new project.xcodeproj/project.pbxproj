@@ -16,7 +16,13 @@
 		1030D27628C0D7BE005D5C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1030D27528C0D7BE005D5C3B /* AppDelegate.swift */; };
 		1030D27F28C0D7BF005D5C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1030D27E28C0D7BF005D5C3B /* Assets.xcassets */; };
 		1030D28228C0D7BF005D5C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1030D28028C0D7BF005D5C3B /* LaunchScreen.storyboard */; };
-		1030D28A28C0D983005D5C3B /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1030D28928C0D983005D5C3B /* mainVC.swift */; };
+		1036B7B328CB38AB0028993A /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1036B7B228CB38AB0028993A /* NSObject.swift */; };
+		10849BDA28CB549E00FE07BA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BD928CB549E00FE07BA /* MainTabBarController.swift */; };
+		10849BDE28CB5EA700FE07BA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BDD28CB5EA700FE07BA /* MainViewController.swift */; };
+		10849BE028CB5F2A00FE07BA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BDF28CB5F2A00FE07BA /* ProfileViewController.swift */; };
+		10849BE328CB5FA800FE07BA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BE228CB5FA800FE07BA /* SettingViewController.swift */; };
+		10849BE628CB5FF900FE07BA /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BE528CB5FF900FE07BA /* OtherViewController.swift */; };
+		10849BE928CB6FFA00FE07BA /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10849BE828CB6FFA00FE07BA /* ViewControllerType.swift */; };
 		A2AD72A374E8A4721ABF01BB /* Pods_Sign_in_new_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF64A78434E2A65C8A293F1 /* Pods_Sign_in_new_project.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +39,13 @@
 		1030D27E28C0D7BF005D5C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1030D28128C0D7BF005D5C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1030D28328C0D7BF005D5C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1030D28928C0D983005D5C3B /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
+		1036B7B228CB38AB0028993A /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		10849BD928CB549E00FE07BA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		10849BDD28CB5EA700FE07BA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		10849BDF28CB5F2A00FE07BA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		10849BE228CB5FA800FE07BA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		10849BE528CB5FF900FE07BA /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		10849BE828CB6FFA00FE07BA /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		413BD3B2C57A2DEDB3224259 /* Pods-Sign in new project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sign in new project.release.xcconfig"; path = "Target Support Files/Pods-Sign in new project/Pods-Sign in new project.release.xcconfig"; sourceTree = "<group>"; };
 		EDF64A78434E2A65C8A293F1 /* Pods_Sign_in_new_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sign_in_new_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -55,6 +67,7 @@
 			children = (
 				1011039128C337F500BA1844 /* TextField.swift */,
 				1011039E28C382E200BA1844 /* appDelegate.swift */,
+				1036B7B228CB38AB0028993A /* NSObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -62,6 +75,10 @@
 		1011039528C3691C00BA1844 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				10849BE428CB5FE000FE07BA /* OtherViewController */,
+				10849BE128CB5F8500FE07BA /* SettingViewController */,
+				10849BDC28CB5E7F00FE07BA /* ProfileViewController */,
+				10849BDB28CB5E3E00FE07BA /* MainViewController */,
 				1011039928C3698E00BA1844 /* Main part */,
 				1011039828C3697300BA1844 /* Base */,
 				1011039728C3694300BA1844 /* Sign up parts */,
@@ -98,7 +115,7 @@
 		1011039928C3698E00BA1844 /* Main part */ = {
 			isa = PBXGroup;
 			children = (
-				1030D28928C0D983005D5C3B /* mainVC.swift */,
+				10849BD928CB549E00FE07BA /* MainTabBarController.swift */,
 			);
 			path = "Main part";
 			sourceTree = "<group>";
@@ -142,12 +159,53 @@
 		1030D27428C0D7BE005D5C3B /* Sign in new project */ = {
 			isa = PBXGroup;
 			children = (
+				10849BE728CB6FCC00FE07BA /* Utils */,
 				1011039A28C369A600BA1844 /* Resources */,
 				1011039528C3691C00BA1844 /* Modules */,
 				1011039028C337CA00BA1844 /* Extensions */,
 				1030D28328C0D7BF005D5C3B /* Info.plist */,
 			);
 			path = "Sign in new project";
+			sourceTree = "<group>";
+		};
+		10849BDB28CB5E3E00FE07BA /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10849BDD28CB5EA700FE07BA /* MainViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		10849BDC28CB5E7F00FE07BA /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10849BDF28CB5F2A00FE07BA /* ProfileViewController.swift */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		10849BE128CB5F8500FE07BA /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10849BE228CB5FA800FE07BA /* SettingViewController.swift */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		10849BE428CB5FE000FE07BA /* OtherViewController */ = {
+			isa = PBXGroup;
+			children = (
+				10849BE528CB5FF900FE07BA /* OtherViewController.swift */,
+			);
+			path = OtherViewController;
+			sourceTree = "<group>";
+		};
+		10849BE728CB6FCC00FE07BA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				10849BE828CB6FFA00FE07BA /* ViewControllerType.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		145B80169D296487E68FA8C0 /* Pods */ = {
@@ -281,14 +339,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10849BE928CB6FFA00FE07BA /* ViewControllerType.swift in Sources */,
 				1011039F28C382E200BA1844 /* appDelegate.swift in Sources */,
 				1030D27628C0D7BE005D5C3B /* AppDelegate.swift in Sources */,
+				10849BDA28CB549E00FE07BA /* MainTabBarController.swift in Sources */,
 				1011038F28C322CC00BA1844 /* baseViewController.swift in Sources */,
+				1036B7B328CB38AB0028993A /* NSObject.swift in Sources */,
 				1011039428C3656C00BA1844 /* signUpViewController.swift in Sources */,
+				10849BE628CB5FF900FE07BA /* OtherViewController.swift in Sources */,
+				10849BE028CB5F2A00FE07BA /* ProfileViewController.swift in Sources */,
 				1011038D28C31B5B00BA1844 /* loginVC.swift in Sources */,
 				1011039228C337F500BA1844 /* TextField.swift in Sources */,
-				1030D28A28C0D983005D5C3B /* mainVC.swift in Sources */,
 				1011039D28C36A6B00BA1844 /* LoginViewModel.swift in Sources */,
+				10849BDE28CB5EA700FE07BA /* MainViewController.swift in Sources */,
+				10849BE328CB5FA800FE07BA /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

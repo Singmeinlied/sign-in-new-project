@@ -7,7 +7,7 @@
 
 import UIKit
 
-class signUpViewController: baseViewController{
+class signUpViewController: baseViewController, UITextFieldDelegate{
     
     private lazy var signUpLabel: UILabel = {
         let ml = UILabel()
@@ -61,9 +61,8 @@ class signUpViewController: baseViewController{
         email.setLeftPaddingPoints(16)
         email.snp.makeConstraints{
             $0.height.equalTo(56)
-            
-//            email.delegate = self
         }
+        email.delegate = self
         
         return email
     }()
@@ -75,9 +74,7 @@ class signUpViewController: baseViewController{
         pass.placeholder = "Enter password"
         pass.setLeftPaddingPoints(16)
         pass.isSecureTextEntry = true
-//        pass.isUserInteractionEnabled = true
-//
-//        pass.delegate = self
+        pass.isUserInteractionEnabled = true
         
         return pass
     }()
@@ -91,10 +88,7 @@ class signUpViewController: baseViewController{
         confirmPass.placeholder = "Confirm password"
         confirmPass.setLeftPaddingPoints(16)
         confirmPass.isSecureTextEntry = true
-//        confirmPass.isUserInteractionEnabled = true
-        
-//        confirmPass.delegate = self
-        
+        confirmPass.isUserInteractionEnabled = true
         
         return confirmPass
     }()
@@ -153,7 +147,7 @@ class signUpViewController: baseViewController{
     private lazy var signInFirst: UILabel = {
         let fl = UILabel()
         fl.text = "Already have an account?"
-        fl.textColor = UIColor(red: 0.322, green: 0.329, blue: 0.392, alpha: 1)
+        fl.textColor = UIColor(red: 0.514, green: 0.514, blue: 0.569, alpha: 1)
         fl.textAlignment = .right
         fl.font = .systemFont(ofSize: 18, weight: .semibold)
         
@@ -208,7 +202,7 @@ class signUpViewController: baseViewController{
         
         signUpLabel.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(computedHeight(30))
         }
         
         backButtonImage.snp.makeConstraints{
@@ -220,16 +214,16 @@ class signUpViewController: baseViewController{
         }
         
         iconImageSignUp.snp.makeConstraints{
-            $0.top.equalTo(signUpLabel.snp.bottom).offset(60)
+            $0.top.equalTo(signUpLabel.snp.bottom).offset(computedHeight(60))
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(138)
+            $0.width.equalTo(computedWidth(140))
         }
         
         signUpStackView.snp.makeConstraints{
-            $0.top.equalTo(iconImageSignUp.snp.bottom).offset(48)
+            $0.top.equalTo(iconImageSignUp.snp.bottom).offset(computedHeight(48))
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(200)
+            $0.height.equalTo(computedHeight(200))
             
         }
         
@@ -247,16 +241,17 @@ class signUpViewController: baseViewController{
         
         SignUpButton.snp.makeConstraints{
             
-            $0.top.equalTo(confirmPass.snp.bottom).offset(30)
+            $0.top.equalTo(confirmPass.snp.bottom).offset(computedHeight(30))
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(60)
+            $0.height.equalTo(computedHeight(60))
         }
         
         stackForAlreadyHaveAnAccount.snp.makeConstraints{
             
-            $0.top.lessThanOrEqualTo(SignUpButton.snp.bottom).offset(20)
+            $0.top.equalTo(SignUpButton.snp.bottom).offset(computedHeight(162))
             $0.centerX.equalToSuperview()
+            $0.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide.snp.bottom).offset(computedHeight(-20))
         }
     }
     

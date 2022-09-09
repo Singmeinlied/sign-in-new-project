@@ -9,7 +9,6 @@ import Foundation
 
 class LoginViewModel{
     
-    
     private let username: String = "User"
     private let password: String = "user"
 
@@ -17,6 +16,9 @@ class LoginViewModel{
     
     func authorizeUser(login: String, password: String){
         if login.lowercased() == username.lowercased() && password == self.password{
+            
+            UserDefaults.standard.setValue("\(login.lowercased())", forKey: "login")
+            
             isUserAuthorized!(true)
         } else {
             isUserAuthorized!(false)
