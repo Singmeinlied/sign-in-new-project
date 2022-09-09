@@ -48,7 +48,6 @@ class loginVC: baseViewController{
             $0.height.equalTo(56)
             
             login.delegate = self
-            
         }
         
         return login
@@ -90,6 +89,7 @@ class loginVC: baseViewController{
         forgot.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         
         forgot.isUserInteractionEnabled = true
+        
         let tappedForgot = UITapGestureRecognizer(target: self, action: #selector(forgotPassTapped))
         forgot.addGestureRecognizer(tappedForgot)
         
@@ -101,9 +101,9 @@ class loginVC: baseViewController{
         
         login.backgroundColor = UIColor(red: 0.127, green: 0.766, blue: 0.687, alpha: 1)
         login.setTitle("Login", for: .normal)
-        login.setTitle("Huegin", for: .highlighted)
+        login.setTitle("Login", for: .highlighted)
         login.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        login.setTitleColor(UIColor.red, for: .highlighted)
+        login.setTitleColor(UIColor.lightGray, for: .highlighted)
         login.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         
         login.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
@@ -144,10 +144,8 @@ class loginVC: baseViewController{
         sl.minimumScaleFactor = 0.5
         
         sl.isUserInteractionEnabled = true
-        
         let tappedSignUp = UITapGestureRecognizer(target: self, action: #selector(signUpTapped))
         sl.addGestureRecognizer(tappedSignUp)
-        
         
         return sl
     }()
@@ -212,8 +210,9 @@ class loginVC: baseViewController{
         
         stackForLastLabels.snp.makeConstraints{
             
-            $0.top.lessThanOrEqualTo(loginButton.snp.bottom).offset(180)
+            $0.top.lessThanOrEqualTo(loginButton.snp.bottom).offset(10)
             $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-20)
         }
         
     }
@@ -226,8 +225,8 @@ class loginVC: baseViewController{
                 self.appDelegate.mainApp()
             }else{
                 self.forgotPassButtonLabel.textColor = .red
+                self.forgotPassButtonLabel.shake(count: 3, for: 0.2, withTranslation: 8)
             }
-            
         }
         
         
@@ -252,7 +251,6 @@ extension loginVC{
         
         if !login.isEmpty && !password.isEmpty{
 
-            
             viewModel.authorizeUser(login: login, password: password)
         }
         
@@ -267,5 +265,18 @@ extension loginVC: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+}
+extension UIView {
     
+    func shake(count: Float = 4, for duration: TimeInterval = 0.5,
+               withTranslation translation: CGFloat = 5) {
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.repeatCount = count
+        animation.duration = duration / TimeInterval(animation.repeatCount)
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: -translation, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: translation, y: self.center.y))
+        layer.add(animation, forKey: "shake")
+    }
 }
